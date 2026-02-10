@@ -1,0 +1,3 @@
+Sample Dataset Structure
+Order_ID	      Date	         Region	         Product	      Sales	       Profit
+1001	       2024-01-05	       North	         Laptop	        50000	        8000
