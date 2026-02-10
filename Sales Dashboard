@@ -1,0 +1,26 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load dataset
+df = pd.read_csv("sales_data.csv")
+
+# Convert date column
+df['Date'] = pd.to_datetime(df['Date'])
+
+# Total Revenue
+total_sales = df['Sales'].sum()
+print("Total Sales:", total_sales)
+
+# Monthly Sales Trend
+df['Month'] = df['Date'].dt.month
+monthly_sales = df.groupby('Month')['Sales'].sum()
+
+monthly_sales.plot(kind='bar')
+plt.title("Monthly Sales Trend")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
+
+# Top Performing Products
+top_products = df.groupby('Product')['Sales'].sum().sort_values(ascending=False)
+print(top_products)
